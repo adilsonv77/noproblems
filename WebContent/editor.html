@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="blockly_compressed.js"></script>
+<script src="blocks_compressed.js"></script>
+<script src="msg/js/pt-br.js"></script>
+<meta charset="UTF-8">
+<title>NoProblem's</title>
+<style>
+</style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="common.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <script src="parsons.js"></script>
+</head>
+<script>
+function initBlockly() {
+	var blocklyArea = document.getElementById('blockly');
+	var blocklyDiv = document.getElementById('blocklyDiv');
+	var game = Blockly.inject(blocklyDiv,
+	    {toolbox: document.getElementById('toolbox')});
+	var onresize = function(e) {
+		    // Compute the absolute coordinates and dimensions of blocklyArea.
+		    var element = blocklyArea;
+		    var x = 0;
+		    var y = 0;
+		    do {
+		      x += element.offsetLeft;
+		      y += element.offsetTop;
+		      element = element.offsetParent;
+		    } while (element);
+		    // Position blocklyDiv over blocklyArea.
+		    blocklyDiv.style.left = x + 'px';
+		    blocklyDiv.style.top = y + 'px';
+		    blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+		    blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+	};
+	window.addEventListener('resize', onresize, false);
+	onresize();
+	Blockly.svgResize(game);
+}
+</script>
+<body onload="initBlockly()">
+	<xml id="toolbox" style="display: none">
+	  <block type="controls_if"></block>
+	  <block type="controls_repeat_ext"></block>
+	  <block type="logic_compare"></block>
+	  <block type="math_number"></block>
+	  <block type="math_arithmetic"></block>
+	  <block type="text"></block>
+	  <block type="text_print"></block>
+	</xml>
+	
+  <div id="mainBody" style="position: absolute; width: 100%">
+	 <div style="background-color: #ed6d54; width:  100%; height: 100px; position: fixed;">
+	 	<div style="height: 56px;" class="nobugs_background"></div>
+	 	<div></div>
+	 </div> 
+	 <div style="width: 960px; height: 100%; position: relative; margin-right: auto; margin-left: auto;">
+	     <table width="100%" class="mainBodyClass">
+		    <tr>
+		      <td style="width: 300px">
+		          <span id="title">
+		           <img src="images/logotipo.png" height="50px"/>
+		          </span>
+		      </td>
+		      <td id="playerNameInMission" class="nobugs_font" style="width:250px; font-size: 16px"></td>
+		      <td style="width: 50px"></td>
+		      <td colspan="2" style="width: 320px">
+	      		<div class="playerReward">
+		      		<div class="playerRewardIcon" style="background-image: url('images/xp.png');"></div>
+	  				<span id="yourXPInMission"></span>
+		      	</div>
+		      </td>
+		      <td style="width: 40px; text-align: center">
+		      	<div>
+		  	     	 <button id="selectMissionLogoffButtonIntoMission" style="background-color: transparent; border: 0px" title="Sair">
+			        	<img id="logoffGame" src="images/logoff.png" style="width:32px; height:32px"/>
+			         </button>
+		         </div>
+		      </td>
+		     </tr>
+		     <tr>
+		        <td>
+		      	  <canvas id="mission_level" width="280" height="22"></canvas>
+		        </td>
+		        <td id="missionIdentification" style="font-size: 16px"></td> 
+		      
+			    <td style="text-align: right">
+			         <div class="buttonsbar">
+				         
+				        <button id="restartBlocksButton" style="background-color: transparent; border: 0px; margin:5px" title="Recarregar">
+				          <img src="images/iconreloadcode.png"/>
+				        </button>
+		
+				        <button id="showBadgesButton" style="background-color: transparent; border: 0px; margin:5px" title="Conquistas">
+				          <img src="images/iconshowbadges.png"/>
+				        </button>
+		
+			         </div>
+			    </td>
+			    <td style="text-align: center">
+		  	     	 <button id="logoffButton" style="background-color: transparent;border: 0px;" title="Retorna ao painel de controle">
+			        	<img src="images/dashboard.png"/>
+			         </button>
+			    </td>
+		      
+		    </tr>
+		  </table>
+	  	</div>	
+		<div id="blockly">
+		<div id="blocklyDiv" style="position: absolute"></div>
+		
+	</div>
+	
+	
+</body>
+</html>
