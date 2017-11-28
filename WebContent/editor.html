@@ -1,44 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="blockly_compressed.js"></script>
-<script src="blocks_compressed.js"></script>
-<script src="msg/js/pt-br.js"></script>
-<meta charset="UTF-8">
-<title>NoProblem's</title>
-<style>
-</style>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="common.css">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-  <script src="parsons.js"></script>
+	<script src="blockly_compressed.js"></script>
+	<script src="blocks_compressed.js"></script>
+	<script src="msg/js/pt-br.js"></script>
+	<meta charset="UTF-8">
+	<title>NoProblem's</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="common.css">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<script src="parsons.js"></script>
 </head>
 <script>
-function initBlockly() {
-	var blocklyArea = document.getElementById('blockly');
-	var blocklyDiv = document.getElementById('blocklyDiv');
-	var game = Blockly.inject(blocklyDiv,
-	    {toolbox: document.getElementById('toolbox')});
-	var onresize = function(e) {
-		    // Compute the absolute coordinates and dimensions of blocklyArea.
-		    var element = blocklyArea;
-		    var x = 0;
-		    var y = 0;
-		    do {
-		      x += element.offsetLeft;
-		      y += element.offsetTop;
-		      element = element.offsetParent;
-		    } while (element);
-		    // Position blocklyDiv over blocklyArea.
-		    blocklyDiv.style.left = x + 'px';
-		    blocklyDiv.style.top = y + 'px';
-		    blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
-		    blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
-	};
-	window.addEventListener('resize', onresize, false);
-	onresize();
-	Blockly.svgResize(game);
-}
 </script>
 <body onload="initBlockly()">
 	<xml id="toolbox" style="display: none">
@@ -85,7 +58,8 @@ function initBlockly() {
 		      	  <canvas id="mission_level" width="280" height="22"></canvas>
 		        </td>
 		        <td id="missionIdentification" style="font-size: 16px"></td> 
-		      
+		        <td style="text-align:center">
+	            </td>
 			    <td style="text-align: right">
 			         <div class="buttonsbar">
 				         
