@@ -451,3 +451,13 @@ table.mainBodyClass td {border: none}
 	background-color: grey;
 	opacity: 0.3
 }
+
+#explanation_outer {
+	position: relative;
+    height: 50px;
+}
+
+#explanation_inner {
+  	position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);}

@@ -1,11 +1,18 @@
 function initBlockly() {
-	/*
-	var blocklyArea = document.getElementById('blockly');
+		
+	var blocklyArea = document.getElementById('blocklyArea');
 	var blocklyDiv = document.getElementById('blocklyDiv');
+	
 	var game = Blockly.inject(blocklyDiv,
-	    {toolbox: document.getElementById('toolbox')});
+	    {toolbox: document.getElementById('toolbox'),
+		scrollbars: true});
+	    
 	var onresize = function(e) {
-		    // Compute the absolute coordinates and dimensions of blocklyArea.
+		
+		blocklyDiv.style.width = (window.innerWidth - 20) + 'px';
+	    blocklyDiv.style.height = (window.innerHeight - 170) + 'px';
+	    /*
+		// Compute the absolute coordinates and dimensions of blocklyArea.
 		    var element = blocklyArea;
 		    var x = 0;
 		    var y = 0;
@@ -19,9 +26,11 @@ function initBlockly() {
 		    blocklyDiv.style.top = y + 'px';
 		    blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
 		    blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+		    */
+	    Blockly.svgResize(game);
 	};
-	window.addEventListener('resize', onresize, false);
+	window.addEventListener('resize', onresize);
 	onresize();
-	Blockly.svgResize(game);
-	*/
+	
+	
 }
